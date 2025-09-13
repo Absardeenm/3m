@@ -195,65 +195,52 @@ body.fade-in {
   .circle-btn { width: 140px; font-size: 0.9rem; }
 }
 
+/* Mobile screens including 6.4-inch */
 @media (max-width: 480px) {
+  body {
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    padding-right: 0;
+  }
+
   .card h1 { font-size: 1.5rem; }
   .card h2 { font-size: 2.5rem; }
   .card p { font-size: 0.9rem; }
-
-  .circle, #mygirl { width: 150px; height: 150px; }
-  .circle-btn { width: 120px; font-size: 0.8rem; }
-}
-
-/* Specific for ~6.4 inch mobiles (approx 360px - 430px width) */
-@media (max-width: 430px) and (min-width: 360px) {
-  body {
-    flex-direction: column;
-    padding: 8px;
-    padding-right: 0;
-    align-items: center;
-  }
-
-  .card h1 {
-    font-size: 1.6rem;
-  }
-
-  .card h2 {
-    font-size: 2.8rem;
-  }
-
-  .card p {
-    font-size: 1rem;
-  }
-
-  .circle, 
-  #mygirl {
-    width: 160px;
-    height: 160px;
-  }
-
-  /* Center the girl image */
-  #mygirl {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin: 20px auto;
-    display: block;
-  }
-
-  .circle-btn {
-    width: 130px;
-    font-size: 0.85rem;
-    padding: 8px 16px;
-  }
 
   .gifts {
     position: static;
     justify-content: center;
     margin-top: 15px;
   }
+  .gift { width: 80px; }
 
-  .gift {
-    width: 70px;
+  .circle-section {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 20px;
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+
+  .circle,
+  #mygirl {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+  .circle-btn {
+    width: 120px;
+    font-size: 0.8rem;
+    padding: 8px 14px;
+    margin-top: 10px;
   }
 
   #b1, #b2, #b3 {
