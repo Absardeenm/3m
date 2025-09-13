@@ -137,5 +137,14 @@ body.fade-in { opacity: 1; }
   .circle-btn { width: 120px; font-size: 0.8rem; }
 }
 
+@media (max-width: 768px) {
+  .circle { width: 250px; height: 250px; }
+}
+
+@media (max-width: 480px) {
+  .circle { width: 200px; height: 200px; }
+}
+
+
 
 
