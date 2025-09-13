@@ -1,0 +1,205 @@
+/* Base Styles */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #f2d8d3;
+  font-family: Arial, sans-serif;
+  padding-right: 200px;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+.card {
+  text-align: center;
+  color: #704445;
+}
+
+.card h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card h2 {
+  font-size: 7rem;
+  font-family: 'Vintage Rotter', cursive;
+  margin: 5px 0;
+}
+
+.card p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+/* Gift Section */
+.gifts {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.gift {
+  width: 150px;
+}
+
+.gift1 {
+  margin-right: -40px;
+  margin-bottom: 5px;
+  z-index: 1;
+}
+
+.gift2 {
+  z-index: 2;
+}
+
+/* Balloons */
+.baloons {
+  position: absolute;
+  top: 150px;
+  left: 1px;
+}
+
+.baloons img,
+#b1, #b2, #b3 {
+  width: 120px;
+  position: fixed;
+  bottom: 0;
+}
+
+#b1 { top: 200px; right: 20px; }
+#b2 { top: 100px; right: 20px; }
+#b3 { top: 100px; left: 500px; }
+
+/* Decoration */
+.decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+#decoration {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Circle Section */
+.circle-section {
+  position: absolute;
+  bottom: 40px;
+  left: 180px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(200px);
+  animation: riseUp 1.5s ease-out forwards;
+}
+
+.circle {
+  width: 280px;
+  height: 280px;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: 10px auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.circle-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  width: 200px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.circle-btn:hover {
+  background-color: #e85b50;
+}
+
+/* Girl Image */
+#mygirl {
+  width: 271px;
+  height: 271px;
+  border-radius: 50%;
+  position: absolute;
+  top: 271px;
+  left: 187px;
+  opacity: 0;
+  transform: translateY(200px);
+  animation: riseUp 1.5s ease-out forwards;
+}
+
+/* Animation */
+@keyframes riseUp {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .card h1 { font-size: 2rem; }
+  .card h2 { font-size: 4rem; }
+  .circle, #mygirl { width: 200px; height: 200px; }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    padding: 10px;
+    padding-right: 0;
+    align-items: center;
+  }
+
+  .card h1 { font-size: 1.8rem; }
+  .card h2 { font-size: 3rem; }
+  .card p { font-size: 1rem; }
+
+  .gifts {
+    position: static;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .gift { width: 80px; }
+  #b1, #b2, #b3 { width: 80px; }
+
+  .circle, #mygirl { width: 180px; height: 180px; }
+  .circle-btn { width: 140px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .card h1 { font-size: 1.5rem; }
+  .card h2 { font-size: 2.5rem; }
+  .card p { font-size: 0.9rem; }
+
+  .circle, #mygirl { width: 150px; height: 150px; }
+  .circle-btn { width: 120px; font-size: 0.8rem; }
+}

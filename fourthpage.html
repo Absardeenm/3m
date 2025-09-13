@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<head>
+<meta charset="utf-8"/>
+<title>Image with Frame + Button</title>
+<style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #f8dedd;
+      font-family: Georgia, serif;
+      opacity: 0;
+      transform: scale(1.05);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    body.loaded {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .frame {
+      display: inline-block;
+      border: 12px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      background: #fff;
+      margin-bottom: 30px;
+    }
+
+    .frame img {
+      display: block;
+      width: 360px;
+      height: 385px;
+      border-radius: 10px;
+    }
+
+    button {
+      width: 90px;
+      height: 90px;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ff8aa7, #ff5d8f);
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 1024px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px;
+        padding: 10px;
+      }
+      .container, .card, .content {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      button, input {
+        max-width: 100%;
+      }
+    }
+  </style>
+<meta content="width=device-width, initial-scale=1" name="viewport"/></head>
+<body>
+<!-- Framed picture -->
+<div class="frame">
+<img alt="Framed Picture" src="mahworld.jpg"/>
+</div>
+<!-- Play / Pause button -->
+<button id="toggleBtn">▶</button>
+<!-- Audio element -->
+<audio id="myAudio" src="wishes.mp3"></audio>
+<script>
+    // Entry animation
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const btn = document.getElementById("toggleBtn");
+    const audio = document.getElementById("myAudio");
+    let isPaused = true;
+
+    btn.addEventListener("click", () => {
+      if (isPaused) {
+        audio.play();
+        btn.textContent = "⏸";
+      } else {
+        audio.pause();
+        btn.textContent = "▶";
+      }
+      isPaused = !isPaused;
+    });
+  </script>
+</body>
+</html>

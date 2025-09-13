@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Birthday Surprise</title>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fde2e4;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* full height */
+      text-align: center;
+      transition: opacity 1s ease;
+    }
+
+    /* Gift Box */
+    .gift-box {
+      width: clamp(100px, 25vw, 180px);
+      aspect-ratio: 1/1; /* stays square */
+      background: #ff4d6d;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      position: relative;
+      margin-bottom: 2vh;
+    }
+    .gift-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10%;
+      height: 100%;
+      background: #fff;
+    }
+
+    /* Surprise text */
+    #surpriseText {
+      font-size: clamp(1.2rem, 5vw, 2.5rem);
+      font-weight: bold;
+      color: #ff4d6d;
+      text-shadow: 2px 2px 6px rgba(255,255,255,0.9);
+      display: none;
+      animation: riseUp 1.5s ease forwards;
+      margin: 2vh 0;
+      padding: 0 5vw;
+      word-wrap: break-word;
+    }
+    @keyframes riseUp {
+      0% { transform: translateY(60px); opacity: 0; }
+      100% { transform: translateY(-20px); opacity: 1; }
+    }
+
+    /* Buttons */
+    button {
+      padding: 0.8rem 2rem;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      border: none;
+      border-radius: 30px;
+      background-color: #ff4d6d;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 2vh;
+    }
+    button:hover { background-color: #e63950; transform: scale(1.05); }
+
+    #nextBtn {
+      display: none;
+    }
+
+    /* Countdown */
+    #countdown {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: bold;
+      color: #ff4d6d;
+      margin-top: 2vh;
+      display: none;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: pink;
+      top: -10px;
+      animation: fall linear forwards;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      to { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    /* Fade out */
+    .fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="gift-box"></div>
+<div id="surpriseText">🎉 HAPPY BIRTHDAY RANI (ABNA) 🎉</div>
+<button id="startBtn">💖 Start Surprise 💖</button>
+<div id="countdown"></div>
+<button id="nextBtn">🎀 Next Surprise 🎀</button>
+<script>
+    const startBtn = document.getElementById("startBtn");
+    const countdown = document.getElementById("countdown");
+    const surpriseText = document.getElementById("surpriseText");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function launchConfetti() {
+      for (let i = 0; i < 50; i++) {
+        let conf = document.createElement("div");
+        conf.classList.add("confetti");
+        document.body.appendChild(conf);
+        conf.style.left = Math.random() * window.innerWidth + "px";
+        conf.style.background = ["#ff4d6d", "#fff", "#ffc0cb"][Math.floor(Math.random() * 3)];
+        conf.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        conf.style.opacity = Math.random();
+        conf.style.transform = `rotate(${Math.random() * 360}deg)`;
+        setTimeout(() => conf.remove(), 5000);
+      }
+    }
+
+    startBtn.addEventListener("click", () => {
+      let timeLeft = 3;
+      countdown.style.display = "block";
+      countdown.textContent = timeLeft;
+
+      const timer = setInterval(() => {
+        timeLeft--;
+        countdown.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          countdown.style.display = "none";
+          surpriseText.style.display = "block";
+          nextBtn.style.display = "inline-block";
+          launchConfetti();
+        }
+      }, 1000);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "wish.html";
+      }, 1000);
+    });
+  </script>
+<!-- Background Music -->
+<audio id="bgMusic" loop="" src="rani.mp3"></audio>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const music = document.getElementById("bgMusic");
+
+      if (localStorage.getItem("musicTime")) {
+        music.currentTime = localStorage.getItem("musicTime");
+      }
+
+      function startMusic() {
+        music.play().catch(() => {});
+        document.removeEventListener("click", startMusic);
+      }
+      document.addEventListener("click", startMusic);
+
+      window.addEventListener("beforeunload", () => {
+        localStorage.setItem("musicTime", music.currentTime);
+      });
+    });
+  </script>
+</body>
+</html>

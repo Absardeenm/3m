@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Third Page</title>
+<link href="thirdpage.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+</head>
+<body>
+<!-- Heading at top -->
+<h1 class="page-title">❤️ HAPPY BIRTH DAY MY LOVE ❤️</h1>
+<!-- Slideshow in middle -->
+<div class="slideshow">
+<img alt="" class="active" src="myg1.png"/>
+<img alt="" src="mygirl2.png"/>
+<img alt="" src="mygirl3.png"/>
+<img alt="" src="mygirl4.png"/>
+<img alt="" src="mygirl5.png"/>
+<img alt="" src="mygirl6.png"/>
+<img alt="" src="mygirl7.png"/>
+<img alt="" src="mygirl8.png"/>
+<img alt="" src="mygirl9.png"/>
+</div>
+<!-- Controls at very bottom of the page -->
+<div class="page-controls">
+<button class="prev">⏮ Prev</button>
+<button class="next">Next ⏭</button>
+</div>
+<!-- 🎈 Balloon container for floating balloons -->
+<div id="balloon-container"></div>
+<!-- Scripts -->
+<!-- 🎉 New bottom-right button -->
+<button id="clickme-btn">Click Me Medam 😘💖</button>
+<script src="thirdpage.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const music = new Audio("rani.mp3");
+    music.loop = true;
+
+    if (localStorage.getItem("musicTime")) {
+      music.currentTime = localStorage.getItem("musicTime");
+    }
+
+    function startMusic() {
+      music.play().catch(() => {});
+      document.removeEventListener("click", startMusic);
+    }
+    document.addEventListener("click", startMusic);
+
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("musicTime", music.currentTime);
+    });
+  });
+  </script>
+</body>
+</html>

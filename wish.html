@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="wish.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div class="card">
+    <h1>HAPPY</h1>
+    <h2>Birthday</h2>
+    <p>My Dear (09/26/2004) ❤️.</p>
+  </div>
+
+  <!-- Gift Images -->
+  <div class="gifts">
+  <img src="gif3.png" alt="Gift 1" class="gift gift1">
+  <img src="gif4.png" alt="Gift 2" class="gift gift2">
+  <img src="product_56745-removebg-preview5.png" alt="Gift 3" class="gift gift3" id="gif7">
+</div>
+
+
+
+  <div class="baloons">
+    <img src="baloons.png" alt="">
+  </div>
+  <div>
+        <img src="baloons.png"  id="b1">
+
+  </div>
+
+  
+  <div>
+        <img src="baloons.png"  id="b2">
+
+  </div>
+
+  <div>
+        <img src="baloons.png"  id="b3">
+
+  </div>
+  
+  <div class="decoration">
+  <img src="b2-removebg-preview.png" id="decration" alt="">
+</div>
+<!-- Circle Section -->
+<div class="circle-section">
+  
+  <div class="circle"></div>
+  <!-- <img src="myg1.png" id="mygirl" alt=""> -->
+   
+  <button class="circle-btn" id="redirectBtn">Click Me</button>
+</div>
+
+<div id="myg">
+  <img src="myg1.png" id="mygirl" alt="">
+</div>
+[]
+<script src="wish.js"></script>
+
+<audio id="bgMusic" src="rani.mp3" loop></audio>
+
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const music = new Audio("rani.mp3");
+    music.loop = true;
+
+    if (localStorage.getItem("musicTime")) {
+      music.currentTime = localStorage.getItem("musicTime");
+    }
+
+    function startMusic() {
+      music.play().catch(() => {});
+      document.removeEventListener("click", startMusic);
+    }
+    document.addEventListener("click", startMusic);
+
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("musicTime", music.currentTime);
+    });
+  });
+  </script>
+
+ 
+
+</body>
+</html>

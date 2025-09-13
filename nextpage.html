@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Happy Birth Day My Love</title>
+<link href="nextpage.css" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+</head>
+<body>
+<div class="birthday-wish">
+<h1>❤️ Wish You Many More Happy Returns Of the Day My Life ❤️</h1>
+<h2>I hope you’re doing well. I’m really sorry 😔 that I couldn’t come in person this time to wish you,</h2>
+<h2>I believe that one day we will meet again. Don’t worry,💖 </h2>
+<h2>I will always be there for you 💘</h2>
+<h2>I know you’ve been facing so many struggles, and I’m sorry about that. 😔</h2>
+<h2> Every single day I spent with you is 💝</h2>
+<h2>the most beautiful memory of my life, and I’ll carry it with me until my last breath. 😘</h2>
+<h2> After you went away from 💖</h2>
+<h2>me, only then did I realize the pain of separation. 💔</h2>
+<h2>Without you, I feel like I can’t do anything right now. 💔</h2>
+<h2>You have always been my biggest support, ❤️‍🩹</h2>
+<h2>my greatest well-wisher 💝</h2>
+<h2> my best friend 💗</h2>
+<h2>my truest companion 💌</h2>
+<h2>Ever since you came into my life, it began to change ❣️</h2>
+<h2>into something happier 💕</h2>
+<h2>I keep praying to God that you’ll come back to me soon. I really, really miss you… 🥺</h2>
+<h2 style="font-size: 40px; font-weight: bolder;"> Thank You For Coming My Life 💞 💝</h2>
+</div>
+<div id="btn">
+<button class="3rdpage" id="clickme-btn">Click Me DEAR 😘</button>
+</div>
+<script src="nextp.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const music = new Audio("rani.mp3");
+  music.loop = true;
+
+  if (localStorage.getItem("musicTime")) {
+    music.currentTime = localStorage.getItem("musicTime");
+  }
+
+  function startMusic() {
+    music.play().catch(() => {});
+    document.removeEventListener("click", startMusic);
+  }
+  document.addEventListener("click", startMusic);
+
+  window.addEventListener("beforeunload", () => {
+    localStorage.setItem("musicTime", music.currentTime);
+  });
+});
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const music = new Audio("rani.mp3");
+    music.loop = true;
+
+    if (localStorage.getItem("musicTime")) {
+      music.currentTime = localStorage.getItem("musicTime");
+    }
+
+    function startMusic() {
+      music.play().catch(() => {});
+      document.removeEventListener("click", startMusic);
+    }
+    document.addEventListener("click", startMusic);
+
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("musicTime", music.currentTime);
+    });
+  });
+  </script>
+</body>
+</html>
