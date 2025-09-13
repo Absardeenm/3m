@@ -76,8 +76,8 @@ body.fade-in { opacity: 1; }
   animation: riseUp 1.5s ease-out forwards;
 }
 .circle {
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   border: 2px solid black;
   border-radius: 50%;
   overflow: hidden;
@@ -136,5 +136,6 @@ body.fade-in { opacity: 1; }
   .circle { width: 150px; height: 150px; }
   .circle-btn { width: 120px; font-size: 0.8rem; }
 }
+
 
 
