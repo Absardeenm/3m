@@ -88,9 +88,11 @@ body.fade-in { opacity: 1; }
 #mygirl {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;   /* show full image */
   border-radius: 50%;
+  background-color: #f2d8d3; /* match background to fill empty space */
 }
+
 .circle-btn {
   margin-top: 15px;
   display: inline-block;
@@ -134,3 +136,4 @@ body.fade-in { opacity: 1; }
   .circle { width: 150px; height: 150px; }
   .circle-btn { width: 120px; font-size: 0.8rem; }
 }
+
