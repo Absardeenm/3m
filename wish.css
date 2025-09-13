@@ -91,6 +91,7 @@ body.fade-in { opacity: 1; }
   object-fit: cover;   /* show full image */
   border-radius: 50%;
   background-color: #f2d8d3; /* match background to fill empty space */
+   object-position: 50% 20%; 
 }
 
 
@@ -146,6 +147,7 @@ body.fade-in { opacity: 1; }
 @media (max-width: 480px) {
   .circle { width: 250px; height: 250px; }
 }
+
 
 
 
