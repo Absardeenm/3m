@@ -3,11 +3,12 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
-  flex-direction: column;   /* stack items vertically */
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: #f2d8d3;
   font-family: Arial, sans-serif;
+  padding-right: 200px;
+  position: relative;
   opacity: 0;
   transition: opacity 0.8s ease;
 }
@@ -16,7 +17,6 @@ body.fade-in {
   opacity: 1;
 }
 
-/* Card Section */
 .card {
   text-align: center;
   color: #704445;
@@ -41,10 +41,11 @@ body.fade-in {
 
 /* Gift Section */
 .gifts {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
-  margin-top: 20px;
 }
 
 .gift {
@@ -77,7 +78,7 @@ body.fade-in {
 
 #b1 { top: 200px; right: 20px; }
 #b2 { top: 100px; right: 20px; }
-#b3 { top: 100px; left: 20px; }
+#b3 { top: 100px; left: 500px; }
 
 /* Decoration */
 .decoration {
@@ -98,8 +99,10 @@ body.fade-in {
 
 /* Circle Section */
 .circle-section {
+  position: absolute;
+  bottom: 40px;
+  left: 180px;
   text-align: center;
-  margin-top: 30px;
   opacity: 0;
   transform: translateY(200px);
   animation: riseUp 1.5s ease-out forwards;
@@ -140,8 +143,9 @@ body.fade-in {
   width: 271px;
   height: 271px;
   border-radius: 50%;
-  display: block;
-  margin: 20px auto;   /* centers the image */
+  position: absolute;
+  top: 271px;
+  left: 187px;
   opacity: 0;
   transform: translateY(200px);
   animation: riseUp 1.5s ease-out forwards;
@@ -168,7 +172,10 @@ body.fade-in {
 
 @media (max-width: 768px) {
   body {
+    flex-direction: column;
     padding: 10px;
+    padding-right: 0;
+    align-items: center;
   }
 
   .card h1 { font-size: 1.8rem; }
@@ -176,6 +183,7 @@ body.fade-in {
   .card p { font-size: 1rem; }
 
   .gifts {
+    position: static;
     justify-content: center;
     margin-top: 20px;
   }
@@ -194,4 +202,61 @@ body.fade-in {
 
   .circle, #mygirl { width: 150px; height: 150px; }
   .circle-btn { width: 120px; font-size: 0.8rem; }
+}
+
+/* Specific for ~6.4 inch mobiles (approx 360px - 430px width) */
+@media (max-width: 430px) and (min-width: 360px) {
+  body {
+    flex-direction: column;
+    padding: 8px;
+    padding-right: 0;
+    align-items: center;
+  }
+
+  .card h1 {
+    font-size: 1.6rem;
+  }
+
+  .card h2 {
+    font-size: 2.8rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+
+  .circle, 
+  #mygirl {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Center the girl image */
+  #mygirl {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .circle-btn {
+    width: 130px;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+
+  .gifts {
+    position: static;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .gift {
+    width: 70px;
+  }
+
+  #b1, #b2, #b3 {
+    width: 70px;
+  }
 }
